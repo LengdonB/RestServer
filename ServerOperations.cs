@@ -22,7 +22,7 @@ namespace RestServer
         class ServerOperations : IServices
         {
             // connection string
-            string connectionString = "Host=localhost; Username=postgres; Password=Rupom@223456; Database=postgres";
+            string connectionString = "Host=localhost; Username=postgres; Password=123; Database=postgres";
 
             #region METHOD TO POST SERVER INTO THE SERVER
 
@@ -49,7 +49,7 @@ namespace RestServer
 
 
                     // setting the sql statement or query which need to executed 
-                    command.CommandText = "INSERT INTO \"Test\" VALUES('" + id + "', '" + name + "', ' " + age + "');";
+                    command.CommandText = "INSERT INTO \"userdata\" VALUES('" + id + "', '" + name + "', ' " + age + "');";
 
                     // execute the SQL query against the connection and returns the no of row affected 
                     command.ExecuteNonQuery();
@@ -106,7 +106,7 @@ namespace RestServer
                     command.Connection = Connection;
 
                     // setting the sql query to be executed 
-                    command.CommandText = "UPDATE \"Test\" SET \"id\" = '" + id + "', \"name\" = '" + name + "', \"age\" = '" + age + "' WHERE \"id\" = '" + id + "';";
+                    command.CommandText = "UPDATE \"userdata\" SET \"id\" = '" + id + "', \"name\" = '" + name + "', \"age\" = '" + age + "' WHERE \"id\" = '" + id + "';";
 
                     // after executing the query against connection return the no of affected rows in the postgre table
                     command.ExecuteNonQuery();
@@ -152,7 +152,7 @@ namespace RestServer
                     // get the sql connection 
                     command.Connection = Connection;
 
-                    command.CommandText = "SELECT * FROM \"Test\" WHERE name = '" + userid + "'; ";
+                    command.CommandText = "SELECT * FROM \"userdata\" WHERE name = '" + userid + "'; ";
 
                     command.ExecuteNonQuery();
 
@@ -207,7 +207,7 @@ namespace RestServer
                     // get the sql connection 
                     command.Connection = Connection;
 
-                    command.CommandText = "SELECT * From \"Test\";";
+                    command.CommandText = "SELECT * From \"userdata\";";
 
                     command.ExecuteNonQuery();
 
